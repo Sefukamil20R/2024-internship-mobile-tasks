@@ -106,13 +106,17 @@ class ProductManager {
   }
 
   // View all products
-   void viewProducts()
-  {
-    for (var product in products)
-    {
-      print('Product Name: ${product._name}, Description: ${product._description}, Price: ${product._price}');
-    }
+  void viewProducts() {
+  if (products.isEmpty) {
+    print("No products available.");
+    return;
   }
+  
+  for (var product in products) {
+    print('Product Name: ${product.getName()}, Description: ${product.getDescription()}, Price: ${product.getPrice()}');
+  }
+}
+
 
   // View a single product
   void viewSingleProduct() {
