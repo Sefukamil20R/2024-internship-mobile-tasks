@@ -68,10 +68,7 @@ class Product {
     return _price;
   }
 
-  @override
-  String toString() {
-    return 'Product Name: $_name, Description: $_description, Price: $_price';
-  }
+  
 }
 
 class ProductManager {
@@ -102,16 +99,18 @@ class ProductManager {
       product.setDescription(newDescription.trim());
       product.setPrice(parsedPrice);
       products.add(product);
-      print("Product added successfully: $product");
+      print("Product added successfully");
     } else {
       print("Invalid product name or description. Product name and description cannot be null.");
     }
   }
 
   // View all products
-  void viewProducts() {
-    for (var product in products) {
-      print(product);
+   void viewProducts()
+  {
+    for (var product in products)
+    {
+      print('Product Name: ${product._name}, Description: ${product._description}, Price: ${product._price}');
     }
   }
 
@@ -122,7 +121,7 @@ class ProductManager {
     if (productName != null) {
       for (var product in products) {
         if (productName.trim().toLowerCase() == product.getName()?.toLowerCase()) {
-          print(product);
+          print('Product Name: ${product._name}, Description: ${product._description}, Price: ${product._price}');
           return;
         }
       }
@@ -168,7 +167,7 @@ class ProductManager {
             default:
               print("Invalid choice. Please try again.");
           }
-          print("Product updated successfully: $product");
+          print("Product updated successfully");
           return;
         }
       }
