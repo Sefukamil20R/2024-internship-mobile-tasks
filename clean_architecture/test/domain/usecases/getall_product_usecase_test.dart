@@ -19,14 +19,14 @@ void main()
   });
   final List<ProductEntitiy> products = [
     ProductEntitiy(
-      id: 1,
+      id: "1",
       name: 'Laptop',
       description: 'Dell XPS',
       imageurl: 'http://example.com/laptop.jpg',
       price: 1200,
     ),
     ProductEntitiy(
-      id: 2,
+      id:" 2",
       name: 'Phone',
       description: 'iPhone 12',
       imageurl: 'http://example.com/phone.jpg',
@@ -37,7 +37,7 @@ void main()
   {test("should return a list of ProductEntitiy when the repository call is successful", ()async
     {
       // arrange
-      when(mockProductRepositories.getAllProducts()).thenAnswer((_)async => Right(products));
+      when(mockProductRepositories.getAllProduct()).thenAnswer((_)async => Right(products));
       // act
       final result = await getAllProductUseCase.getAllproduct();
       // assert
@@ -48,12 +48,12 @@ void main()
     test("should return Failure when the repository call fails", ()async 
     {
       // arrange
-      final failure = Failure("Server Error");
-      when(mockProductRepositories.getAllProducts()).thenAnswer((_)async => Left(failure));
+      const failure = Failure("Server Error");
+      when(mockProductRepositories.getAllProduct()).thenAnswer((_)async => Left(failure));
       // act
       final result = await getAllProductUseCase.getAllproduct();
       // assert
-      expect(result, Left(failure));
+      expect(result, const Left(failure));
     });
 
 

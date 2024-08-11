@@ -18,7 +18,7 @@ void main() {
   });
 
   final product_One = ProductEntitiy(
-    id: 1,
+    id:" 1",
     name: 'Laptope',
     description: 'Dell',
     imageurl: 'http://laptope.com/image.jpg',
@@ -42,7 +42,7 @@ void main() {
 
     test('should return Failure when the repository call fails', () async {
       // arrange
-      final failure = Failure('Server error');
+      const failure = Failure('Server error');
       when(mockProductRepositories.addproduct(product_One))
           .thenAnswer((_) async => Left(failure));
 

@@ -18,7 +18,7 @@ void main() {
     getSpecProductUseCase = GetSpecproductsusecase(mockProductRepositories);
   });
 
-  final Id = 1;
+  final Id =" 1";
   final testProduct = ProductEntitiy(
     id: Id,
     name: 'Laptop',
@@ -44,7 +44,7 @@ void main() {
 
     test('should return Failure when the repository call fails', () async {
       // arrange
-      final failure = Failure('Product not found');
+      const failure = Failure('Product not found');
       when(mockProductRepositories.getProductById(Id))
           .thenAnswer((_) async => Left(failure));
 

@@ -17,7 +17,7 @@ void main() {
     deleteProductUseCase = DeleteProductusecase(mockProductRepositories);
   });
 
-  final Id = 1;
+  final Id = "1";
   final product_3 = ProductEntitiy(
     id: Id,
     name: 'Laptop',
@@ -43,15 +43,15 @@ void main() {
 
     test('should return Failure when the repository call fails', () async {
       // arrange
-      final failure = Failure('Failed to delete product');
+      const failure = Failure('Failed to delete product');
       when(mockProductRepositories.deleteproduct(Id))
-          .thenAnswer((_) async => Left(failure));
+          .thenAnswer((_) async => const Left(failure));
 
       // act
       final result = await deleteProductUseCase.deleteproduct(Id);
 
       // assert
-      expect(result, Left(failure));
+      expect(result, const Left(failure));
       verify(mockProductRepositories.deleteproduct(Id));
       verifyNoMoreInteractions(mockProductRepositories);
     });

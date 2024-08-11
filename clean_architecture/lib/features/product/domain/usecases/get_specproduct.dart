@@ -9,7 +9,7 @@ class GetSpecproductsusecase
   GetSpecproductsusecase(this.productRepository);
   
   // ignore: non_constant_identifier_names
-  Future<Either<Failure,ProductEntitiy>>GetSpecproduct(int productId)
+  Future<Either<Failure,ProductEntitiy>>GetSpecproduct(String productId)
   {
     return productRepository.getProductById(productId);
   }

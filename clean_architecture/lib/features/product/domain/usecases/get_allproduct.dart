@@ -9,6 +9,6 @@ class GetAllproductusecase
   GetAllproductusecase(this. productRepository);
   Future<Either<Failure, List<ProductEntitiy>>> getAllproduct()
   {
-    return productRepository.getAllProducts();
+    return productRepository.getAllProduct();
   }
 }

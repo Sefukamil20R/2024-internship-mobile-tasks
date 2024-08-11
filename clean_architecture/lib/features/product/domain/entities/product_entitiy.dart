@@ -7,7 +7,7 @@ class ProductEntitiy extends Equatable{
     required this.imageurl,
     required this.price,
   });
-  final int id;
+  final String id;
   final String name;
   final String description;
   final String imageurl;
