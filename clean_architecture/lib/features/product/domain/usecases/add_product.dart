@@ -16,6 +16,3 @@ class AddProductUseCase {
 
 
 
-// The Either type from the dartz package is used to 
-//handle cases where a function can either return a value of type Right 
-//or an error of type Left.

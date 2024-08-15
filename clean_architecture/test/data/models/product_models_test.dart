@@ -55,7 +55,3 @@ test(
 }
 
 
-// 'should be a subclass of weather entity',
-
-//     'should return a valid model from json',
-//    'should return a json map containing proper data',

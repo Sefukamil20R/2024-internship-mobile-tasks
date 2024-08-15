@@ -1,6 +1,7 @@
 import 'dart:io'; // For SocketException
 import 'package:clean_architecture/core/Network/Network_info.dart';
 import 'package:clean_architecture/core/error/failure.dart';
+import 'package:clean_architecture/features/product/data/data_sources/local_data_source.dart';
 import 'package:clean_architecture/features/product/domain/entities/product_entitiy.dart';
 import 'package:clean_architecture/features/product/domain/repositories/product_repositories.dart';
 import 'package:dartz/dartz.dart';
@@ -11,8 +12,9 @@ import 'package:clean_architecture/features/product/data/models/products_models.
 class ProductRepositoryImpl implements ProductRepositories {
   final RemoteDataSource remoteDataSource;
   final Network_info network_info;
+  final LocalDataSource localDataSource;
 
-  ProductRepositoryImpl({required this.remoteDataSource , required this.network_info});
+  ProductRepositoryImpl({required this.remoteDataSource , required this.network_info , required this.localDataSource});
 
   @override
   Future<Either<Failure, ProductEntitiy>> addproduct(ProductEntitiy product) async {
@@ -61,14 +63,14 @@ class ProductRepositoryImpl implements ProductRepositories {
     } }
     else
     {
-      return const Left(Failure('No Internet Connection'));
+      return const Left(Failure('No Internet sefina Connection'));
     }
   }
 
   @override
   Future<Either<Failure, List<ProductEntitiy>>> getAllProduct() async {
-    final isConnected = await network_info.isConnected;
-    if (isConnected == true)
+    // final isConnected = await network_info.isConnected;
+    if (await network_info.isConnected)
    { try {
       final result = await remoteDataSource.getAllProducts();
 
@@ -83,7 +85,7 @@ class ProductRepositoryImpl implements ProductRepositories {
     } }
     else
     {
-      return const Left(Failure('No Internet Connection'));
+      return const Left(Failure('No Internet sefinaaaa Connection'));
     }
   }
 

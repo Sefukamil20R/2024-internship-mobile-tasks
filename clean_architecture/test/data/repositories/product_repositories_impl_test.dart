@@ -12,13 +12,16 @@ void main() {
   late MockRemoteDataSource mockRemoteDataSource;
   late ProductRepositoryImpl productRepositoryImpl;
   late MockNetwork_info mockNetworkInfo;
+  late MockLocalDataSource mockLocalDataSource;
 
   setUp(() {
     mockRemoteDataSource = MockRemoteDataSource();
     mockNetworkInfo = MockNetwork_info();
+    mockLocalDataSource = MockLocalDataSource();
     productRepositoryImpl = ProductRepositoryImpl(
       remoteDataSource: mockRemoteDataSource,
       network_info: mockNetworkInfo,
+      localDataSource: mockLocalDataSource,
     );
   });
 

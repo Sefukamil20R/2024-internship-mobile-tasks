@@ -1,7 +1,6 @@
 import 'package:clean_architecture/core/error/failure.dart';
 import 'package:clean_architecture/features/product/data/models/products_models.dart';
 import 'package:clean_architecture/features/product/domain/entities/product_entitiy.dart';
-import 'package:clean_architecture/features/product/domain/repositories/product_repositories.dart';
 import 'package:clean_architecture/features/product/domain/usecases/update_product.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
