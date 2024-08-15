@@ -29,7 +29,10 @@ class _ProductDetailsState extends State<ProductDetails> {
         if (state is Success) {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(content: Text(state.message)),
+
           );
+        
+
         }
         else if (state is ErrorProductState) {
           ScaffoldMessenger.of(context).showSnackBar(
@@ -66,7 +69,9 @@ class _ProductDetailsState extends State<ProductDetails> {
                       left: 10,
                       child: FloatingActionButton.small(
                         onPressed: () {
-                          Navigator.pop(context); // Navigate back to the previous screen
+                          Navigator.pop(context); 
+                        context.read<ProductBloc>().add(const LoadAllProductEvent());
+
                         },
                         shape: const CircleBorder(),
                         backgroundColor: Colors.white,

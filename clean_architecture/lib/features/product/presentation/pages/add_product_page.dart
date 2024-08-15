@@ -43,6 +43,8 @@ class AddProduct extends StatelessWidget {
         leading: IconButton(
           onPressed: () {
             Navigator.of(context).pop();
+          context.read<ProductBloc>().add(const LoadAllProductEvent());
+            
           },
           icon: const Icon(
             Icons.arrow_back_ios,
@@ -56,7 +58,7 @@ class AddProduct extends StatelessWidget {
             ScaffoldMessenger.of(context).showSnackBar(
               const SnackBar(content: Text('Product added successfully!')),
             );
-            Navigator.pop(context); // Navigate back or to another screen
+            // Navigator.pop(context); // Navigate back or to another screen
           } else if (state is ErrorProductState) {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(content: Text(state.errorMessage)),
