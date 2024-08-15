@@ -132,15 +132,23 @@ Future<Either<Failure, ProductModel>> updateproduct(String productId, ProductMod
   @override
   Future<Either<Failure, ProductModel>> deleteproduct(String productId) async {
     try {
-      final response = await http.delete(Uri.parse('${Urls.baseUrl}/$productId'));
+    final response = await http.delete(Uri.parse('${Urls.baseUrl}/$productId'));
 
-      if (response.statusCode == 200) {
-        return Right(ProductModel.fromJson({})); 
-      } else {
-        return const Left(Failure('Failed to delete product'));
-      }
-    } catch (e) {
-      return const Left(Failure('An unexpected error occurred'));
+    if (response.statusCode == 200) {
+      return Right(ProductModel(
+        id: productId,
+        name: 'Deleted Product', 
+        description: '',
+        imageurl: '',
+        price: 0,
+      ));
+    } else if (response.statusCode == 404) {
+      return const Left(Failure('Product not found'));
+    } else {
+      return const Left(Failure('Failed to delete product'));
     }
+  } catch (e) {
+    return const Left(Failure('An unexpected error occurred'));
   }
+}
 }
