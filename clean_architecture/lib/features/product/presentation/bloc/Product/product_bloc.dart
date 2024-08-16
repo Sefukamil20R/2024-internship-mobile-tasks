@@ -48,6 +48,7 @@ Future<void>_onUpdateProductEvent(UpdateProductEvent event , Emitter<ProductStat
 {
   emit(LoadingProductState());
   final result = await updateProductusecase.updateproduct(event.id, event.model);
+  print(result);
   result.fold((failure) => emit(ErrorProductState(errorMessage: 'failed to update product')), (updatedpro) => emit(UpdatedSuccessProductState(product: updatedpro, successMessage: 'product updated successfully')));
 }
 Future <void>_onDeleteProductEvent(DeleteProductEvent event,Emitter<ProductState>emit)async 
@@ -62,7 +63,7 @@ Future <void>_onCreateProductEvent(CreateProductEvent event,Emitter<ProductState
   emit(LoadingProductState());
   final result = await addProductusecase.addProduct(event.model);
 print(result);
-  result.fold((failure) => emit(ErrorProductState(errorMessage: 'product cannot be added')), (_)=>emit(Success(message: 'Peoduct Deleted Successfully')));  
+  result.fold((failure) => emit(ErrorProductState(errorMessage: 'product cannot be added')), (_)=>emit(Success(message: 'Peoduct added Successfully')));  
 }
 
 }

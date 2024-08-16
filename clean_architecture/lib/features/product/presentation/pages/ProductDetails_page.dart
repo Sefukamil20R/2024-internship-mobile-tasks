@@ -2,6 +2,8 @@ import 'package:clean_architecture/features/product/domain/entities/product_enti
 import 'package:clean_architecture/features/product/presentation/bloc/Product/product_bloc.dart';
 import 'package:clean_architecture/features/product/presentation/bloc/Product/product_event.dart';
 import 'package:clean_architecture/features/product/presentation/bloc/Product/product_state.dart';
+import 'package:clean_architecture/features/product/presentation/pages/homepage.dart';
+import 'package:clean_architecture/features/product/presentation/pages/update_product.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -69,8 +71,8 @@ class _ProductDetailsState extends State<ProductDetails> {
                       left: 10,
                       child: FloatingActionButton.small(
                         onPressed: () {
-                          Navigator.pop(context); 
-                        context.read<ProductBloc>().add(const LoadAllProductEvent());
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()));
+                  context.read<ProductBloc>().add(const LoadAllProductEvent());
 
                         },
                         shape: const CircleBorder(),
@@ -197,7 +199,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                       ),
                       ElevatedButton(
                         onPressed: () {
-                          // Navigator.push(context, MaterialPageRoute(builder: (context) =>  UpdateProduct(sampleproduct: widget.sampleproduct )));
+                          Navigator.push(context, MaterialPageRoute(builder: (context) =>  UpdateProduct(sampleproduct: widget.sampleproduct )));
                         },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.blue,

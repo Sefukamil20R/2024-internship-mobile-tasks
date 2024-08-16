@@ -56,7 +56,7 @@ class AddProduct extends StatelessWidget {
         listener: (context, state) {
           if (state is Success) {
             ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(content: Text('Product added successfully!')),
+              const SnackBar(content: Text('Product added successfully')),
             );
             // Navigator.pop(context); // Navigate back or to another screen
           } else if (state is ErrorProductState) {
