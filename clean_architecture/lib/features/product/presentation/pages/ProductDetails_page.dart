@@ -82,7 +82,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                     ),
                   ],
                 ),
-                const SizedBox(height: 8), // Space between image and other content
+                const SizedBox(height: 8), 
                 Padding(
                   padding: const EdgeInsets.fromLTRB(20, 10, 20, 5),
                   child: Row(

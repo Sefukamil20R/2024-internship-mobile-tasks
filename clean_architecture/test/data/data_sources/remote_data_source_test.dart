@@ -24,7 +24,7 @@ void main() {
 
   setUp(() {
     mockHttpClient = MockClient();
-    remoteDataSourceImpl = RemoteDataSourceImpl(client: mockHttpClient);
+    remoteDataSourceImpl = RemoteDataSourceImpl(client: mockHttpClient, userLocalDataSource:  );
   });
 
   group('getAllProducts', () {

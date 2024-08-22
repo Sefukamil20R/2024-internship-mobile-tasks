@@ -56,14 +56,14 @@ Future <void>_onDeleteProductEvent(DeleteProductEvent event,Emitter<ProductState
   emit(LoadingProductState());
   final result = await deleteProductusecase.deleteproduct(event.id);
   print(result);
-  result.fold((failure) => emit(ErrorProductState(errorMessage: 'product cannot be deleted')), (_)=>emit(Success(message: 'Peoduct Deleted Successfully')));  
+  result.fold((failure) => emit(ErrorProductState(errorMessage: 'product cannot be deleted')), (_)=>emit(Success(message: 'Product Deleted Successfully')));  
 }
 Future <void>_onCreateProductEvent(CreateProductEvent event,Emitter<ProductState>emit)async 
 {
   emit(LoadingProductState());
   final result = await addProductusecase.addProduct(event.model);
 print(result);
-  result.fold((failure) => emit(ErrorProductState(errorMessage: 'product cannot be added')), (_)=>emit(Success(message: 'Peoduct added Successfully')));  
+  result.fold((failure) => emit(ErrorProductState(errorMessage: 'product cannot be added')), (_)=>emit(Success(message: 'Product added Successfully')));  
 }
 
 }

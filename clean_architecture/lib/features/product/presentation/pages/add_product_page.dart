@@ -2,11 +2,12 @@ import 'package:clean_architecture/features/product/domain/entities/product_enti
 import 'package:clean_architecture/features/product/presentation/bloc/Product/product_bloc.dart';
 import 'package:clean_architecture/features/product/presentation/bloc/Product/product_event.dart';
 import 'package:clean_architecture/features/product/presentation/bloc/Product/product_state.dart';
-import 'package:clean_architecture/features/product/presentation/pages/homepage.dart';
+// import 'package:clean_architecture/features/product/presentation/pages/homepage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
+// ignore: must_be_immutable
 class AddProduct extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
 
@@ -58,7 +59,6 @@ class AddProduct extends StatelessWidget {
             ScaffoldMessenger.of(context).showSnackBar(
               const SnackBar(content: Text('Product added successfully')),
             );
-            // Navigator.pop(context); // Navigate back or to another screen
           } else if (state is ErrorProductState) {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(content: Text(state.errorMessage)),

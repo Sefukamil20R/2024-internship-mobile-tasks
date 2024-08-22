@@ -1,4 +1,4 @@
-import 'dart:io'; // For SocketException
+import 'dart:io'; 
 import 'package:clean_architecture/core/Network/Network_info.dart';
 import 'package:clean_architecture/core/error/failure.dart';
 import 'package:clean_architecture/features/product/data/data_sources/local_data_source.dart';
@@ -63,7 +63,7 @@ class ProductRepositoryImpl implements ProductRepositories {
     } }
     else
     {
-      return const Left(Failure('No Internet sefina Connection'));
+      return const Left(Failure('No Internet Connection'));
     }
   }
 
@@ -85,7 +85,7 @@ class ProductRepositoryImpl implements ProductRepositories {
     } }
     else
     {
-      return const Left(Failure('No Internet sefinaaaa Connection'));
+      return const Left(Failure('No Internet  Connection'));
     }
   }
 
