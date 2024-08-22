@@ -1,6 +1,7 @@
 import 'package:eccolutter/add_product.dart';
 import 'package:eccolutter/product_details.dart';
 import 'package:eccolutter/search_page.dart';
+import 'package:eccolutter/splashscreen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -200,6 +201,7 @@ class _HomePageState extends State<HomePage> {
       floatingActionButton: FloatingActionButton(
                 onPressed: () {
               Navigator.push(context, MaterialPageRoute(builder: (context) => const AddProduct()));
+              Navigator.push(context, MaterialPageRoute(builder: (context) => const SplashScreen()));
 
                 },
                 backgroundColor: Colors.blue,
